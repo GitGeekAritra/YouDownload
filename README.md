@@ -9,18 +9,18 @@ def download_video():
         messagebox.showerror("Error", "Please enter a YouTube URL")
         return
     
-    try:
+try:
         yt = YouTube(url)
         stream = yt.streams.get_highest_resolution()
         save_path = filedialog.askdirectory()
         
-        if save_path:
+if save_path:
             stream.download(save_path)
             messagebox.showinfo("Success", "Download Completed!")
         else:
             messagebox.showwarning("Warning", "Download canceled.")
     
-    except Exception as e:
+except Exception as e:
         messagebox.showerror("Error", f"Failed to download video: {e}")
 
 
